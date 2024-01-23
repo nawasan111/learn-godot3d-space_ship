@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://dhd0yum1ffwhy"]
+
+[ext_resource type="PackedScene" uid="uid://7gpei4wjw8d2" path="res://Charactors/Player.tscn" id="1_nlm8y"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_frq8i"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6k8es"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_0ia2h"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_56kmk"]
+size = Vector3(1, 399.995, 1)
+
+[node name="World" type="Node3D"]
+
+[node name="Water" type="MeshInstance3D" parent="."]
+transform = Transform3D(23.9311, 0, 0, 0, 1, 0, 0, 0, 34.738, 0, 0, 0)
+mesh = SubResource("PlaneMesh_frq8i")
+surface_material_override/0 = SubResource("StandardMaterial3D_6k8es")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("WorldBoundaryShape3D_0ia2h")
+
+[node name="CollisionLeft" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -7.32079, 999.944, 7.38795)
+shape = SubResource("BoxShape3D_56kmk")
+
+[node name="CollisionRight" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 7.45511, 999.944, 7.58944)
+shape = SubResource("BoxShape3D_56kmk")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.278069, 30.9224, 0)
+
+[node name="Marker3D" type="Marker3D" parent="."]
+
+[node name="Pivot" type="Node3D" parent="Marker3D"]
+
+[node name="Camera3D" type="Camera3D" parent="Marker3D/Pivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0527878, 5.04935, 30.957)
+
+[node name="Player" parent="." instance=ExtResource("1_nlm8y")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 23.2217)
