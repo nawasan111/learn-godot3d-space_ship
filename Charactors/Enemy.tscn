@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cl18wqwouqoxf"]
+
+[ext_resource type="PackedScene" uid="uid://lm85oaj5ti8j" path="res://Models/enemy.glb" id="1_l8das"]
+[ext_resource type="Script" path="res://Charactors/Enemy.gd" id="1_qu1xy"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_whpb0"]
+
+[node name="Enemy" type="CharacterBody3D"]
+disable_mode = 1
+script = ExtResource("1_qu1xy")
+
+[node name="Pivot" type="Node3D" parent="."]
+
+[node name="Sketchfab_Scene" parent="Pivot" instance=ExtResource("1_l8das")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(8.34416, 0, 0, 0, 2.5247, 0, 0, 0, 21.1464, 0, 0, -0.931192)
+shape = SubResource("BoxShape3D_whpb0")

@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="LightFource"
-run/main_scene="res://world.tscn"
+run/main_scene="res://start_game.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Global="*res://Charactors/global.gd"
 
 [input]
 
